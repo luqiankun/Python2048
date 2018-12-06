@@ -2,7 +2,7 @@
 @Author: lqk
 @Email: lqkisme@163.com
 @Date: 2018-12-05 14:51:48
-@LastEditTime: 2018-12-06 12:54:51
+@LastEditTime: 2018-12-06 12:57:55
 @Description: write a 2048 game
 '''
 import random
