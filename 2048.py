@@ -2,8 +2,8 @@
 @Author: lqk
 @Email: lqkisme@163.com
 @Date: 2018-12-05 14:51:48
-@LastEditTime: 2018-12-05 15:31:35
-@Description: None
+@LastEditTime: 2018-12-06 12:54:51
+@Description: write a 2048 game
 '''
 import random
 
@@ -18,7 +18,7 @@ class Game(object):
         初始化分数、添加棋子标志位、棋盘、提示和空位存储列表
         '''
         self.scroe = 0
-        self.ADD = False
+        self.ADD = False  # 是否添加棋子标志位
         self.BoardList = [['', '', '', ''],
                           ['', '', '', ''],
                           ['', '', '', ''], ['', '', '', '']]
@@ -101,6 +101,7 @@ class Game(object):
             if j:
                 Temp1.append(j)
                 k = k+1
+        # 如果临时列表1不为空，而原列表第一个元素是空或者临时列表1的长度小于源列表最后一个不为0的元素位置，说明发生元素移动
         if Temp1:
             if line[0] == '':
                 self.ADD = True
@@ -156,7 +157,7 @@ class Game(object):
 
     def JuiceWin(self):
         '''
-         判断是否赢，列表中出现2048表示胜利
+         判断是否赢，列表中出现2048表示胜利，然后刷新空位列表
         '''
         self.Empty = []
         for i in range(len(self.BoardList)):
@@ -169,7 +170,7 @@ class Game(object):
 
     def JuiceDefeat(self):
         '''
-         列表满了，没有相邻元素相等，则失败
+         列表满了，没有相邻元素相等，则失败，否则返回假
         '''
         if not self.Empty:
             # 每行
